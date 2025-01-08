@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Tarifas</title>
+</head>
+<body>
+    <h1>Consulta de Tarifas - Aeroporto Catarina</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="marca">Marca da Aeronave:</label>
+        <input type="text" id="marca" name="marca" required><br><br>
 
+        <label for="aeronaves">Arquivo de Aeronaves:</label>
+        <input type="file" id="aeronaves" name="aeronaves" accept=".xls, .xlsx" required><br><br>
+
+        <label for="tarifas">Arquivo de Tarifas:</label>
+        <input type="file" id="tarifas" name="tarifas" accept=".xls, .xlsx" required><br><br>
+
+        <button type="submit">Buscar</button>
+    </form>
+</body>
+</html>
