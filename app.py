@@ -3,6 +3,10 @@ import pandas as pd
 
 app = Flask(__name__)
 
+# Caminho dos arquivos Excel
+AERONAVES_FILE = "2025-01.xls"
+TARIFAS_FILE = "Tarifas-2025.xlsx"
+
 # Função para determinar a categoria com base no peso
 def definir_categoria(peso):
     categorias = [
@@ -24,12 +28,10 @@ def definir_categoria(peso):
 def index():
     if request.method == "POST":
         marca = request.form.get("marca")
-        aeronaves_file = request.files["aeronaves"]
-        tarifas_file = request.files["tarifas"]
 
-        # Leitura dos arquivos Excel
-        aeronaves_df = pd.read_excel(aeronaves_file)
-        tarifas_df = pd.read_excel(tarifas_file)
+        # Carregar os dados das aeronaves e tarifas
+        aeronaves_df = pd.read_excel(AERONAVES_FILE)
+        tarifas_df = pd.read_excel(TARIFAS_FILE)
 
         # Busca pela marca
         aeronave = aeronaves_df[aeronaves_df["MARCA"] == marca].iloc[0]
